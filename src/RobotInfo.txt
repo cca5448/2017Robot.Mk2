@@ -1,0 +1,23 @@
+RobotMap.h 				= Pin Assignments
+Robot.*					= Robot
+OI.*					= Operator Interface
+#Subsystems\Aimer.*			= Aimer, aims shooter/bot at goal
+#Subsystems\Climber.*			= Climber, climbs rope in last 30 seconds
+Subsystems\DriveBase.*			= Drive Base, makes the robot move
+Subsystems\FuelCollector.*		= Fuel Collector, picks up fuel from floor and puts in hopper
+Subsystems\FuelFeed.*			= Fuel Feeder, feeds fuel to shooter
+Subsystems\GearFeed.*			= Gear Feeder, ejects gears from the holder
+#Subsystems\Setup.*			= Setup, configures robot parameters
+Subsystems\Shooter.*			= Shooter, launches fuel toward goal
+#Subsystems\Vision.*			= Vision, gets vision data
+Commands\Aimer\*			= Commands for Aimer
+Commands\Autonomous\*			= Commands for Autonomous
+Commands\DriveBase\*			= Commands for DriveBase
+Commands\FuelCollector\*		= Commands for FuelCollector
+Commands\FuelFeed\*			= Commands for FuelFeed
+Commands\GearFeed\*			= Commands for GearFeed
+Commands\Setup\*			= Commands for Setup
+Commands\Shooter\*			= Commands for Shooter
+Commands\Vision\*			= Commands for Vision
+
+# = not completed
