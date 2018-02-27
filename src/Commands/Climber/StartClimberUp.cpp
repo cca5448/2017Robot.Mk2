@@ -1,4 +1,4 @@
-#include "Commands/Climber/StartClimberFwd.h"
+#include <Commands/Climber/StartClimberUp.h>
 #include "Robot.h"
 
 StartClimberFwd::StartClimberFwd()
@@ -14,6 +14,7 @@ void StartClimberFwd::Initialize()
 void StartClimberFwd::Execute()
 {
 	Robot::climber->StartClimberFwd();
+	//printf("StartClimberFwd");
 	SmartDashboard::PutString("Climber Running","fwd");
 }
 

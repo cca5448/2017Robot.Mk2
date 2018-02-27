@@ -8,11 +8,18 @@
 class Vision: public Subsystem
 {
 	private:
-
+		//cs::AxisCamera cam1;
+		//cs::AxisCamera cam2;
+		//cs::VideoSink server;
+		//cs::CvSink cvsink1;
+		//cs::CvSink cvsink2;
+		//int isCam1 = 1;
 	public:
 		Vision();
 		void InitDefaultCommand();
-		void FindGoal();
+		void MultiCamServer();
+		void StartThread();
+		void ToggleCamera();
 };
 
 #endif

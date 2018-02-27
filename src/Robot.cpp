@@ -9,6 +9,7 @@ OI * Robot::oi = NULL;
 Climber * Robot::climber = NULL;
 DriveBase * Robot::drivebase = NULL;
 Vision * Robot::vision = NULL;
+Air * Robot::air = NULL;
 Setup * Robot::setup = NULL;
 
 void Robot::RobotInit(){
@@ -18,6 +19,7 @@ void Robot::RobotInit(){
 	climber = new Climber();
 	drivebase = new DriveBase();
 	vision = new Vision();
+	air = new Air();
 	setup = new Setup();
 
 /*
@@ -32,7 +34,7 @@ void Robot::RobotInit(){
 */
 
 	//other stuff
-	lw = LiveWindow::GetInstance();
+	//lw = LiveWindow::GetInstance();
 //	autoncommand = (Command *) autonchooser->GetSelected();
 	int mode = (int) SmartDashboard::GetNumber("DB/Slider 3",0);
 	autoncommand = new Autonomous(mode);
@@ -54,6 +56,7 @@ void Robot::AutonomousPeriodic(){
 
 void Robot::TeleopInit(){
 	autoncommand->Cancel();
+	drivebase->ResetGyro();
 }
 
 void Robot::TeleopPeriodic(){
@@ -61,10 +64,11 @@ void Robot::TeleopPeriodic(){
 }
 
 void Robot::TestPeriodic(){
-	lw->Run(); //runs the livewindow during test
+	//lw->Run(); //runs the livewindow during test
 }
 
 void Robot::DisabledPeriodic(){
+	Scheduler::GetInstance()->Run(); //continually run the scheduler during disabled
 	//lw->Run(); //runs the livewindow during test
 }
 

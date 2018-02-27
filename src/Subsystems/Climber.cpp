@@ -14,7 +14,7 @@ void Climber::InitDefaultCommand()
 
 void Climber::StartClimberFwd()
 {
-	SmartDashboard::PutBoolean(SDB_CLIMB_LED_ID,true);
+	//SmartDashboard::PutBoolean(SDB_CLIMB_LED_ID,true);
 	//feed_motor->Set(Robot::setup->SDB_ReturnFeederSpeed());
 
 	//if (!Robot::shooter->IsShooterRunning()) {
@@ -30,7 +30,7 @@ void Climber::StartClimberFwd()
 
 void Climber::StartClimberRev()
 {
-	SmartDashboard::PutBoolean(SDB_CLIMB_LED_ID,true);
+	//SmartDashboard::PutBoolean(SDB_CLIMB_LED_ID,true);
 	//feed_motor->Set(-Robot::setup->SDB_ReturnFeederSpeed());
 	//if (!Robot::shooter->IsShooterRunning()) {
 		//Robot::shooter->StartShooter(MOT_SHOOTER_SPEED_DEF);
@@ -45,7 +45,7 @@ void Climber::StartClimberRev()
 
 void Climber::StopClimber()
 {
-	SmartDashboard::PutBoolean(SDB_CLIMB_LED_ID,false);
+	//SmartDashboard::PutBoolean(SDB_CLIMB_LED_ID,false);
 	climb_motor->StopMotor(); //stop feed motor
 }
 

@@ -1,18 +1,24 @@
 #ifndef SUBS_DRIVEBASE_H_
 #define SUBS_DRIVEBASE_H_
 
-#include <CANTalon.h>
-#include <ADXRS450_Gyro.h>
+#include <ctre/Phoenix.h>
 #include "WPILib.h"
 
 class DriveBase: public Subsystem
 {
 	private:
-		CANTalon * lf_motor; //left front
-		CANTalon * lr_motor; //left rear
-		CANTalon * rf_motor; //right front
-		CANTalon * rr_motor; //right rear
-		ADXRS450_Gyro * drive_gyro; //gyro
+		TalonSRX * lf_motor; //left front
+		TalonSRX * lr_motor; //left rear
+		TalonSRX * rf_motor; //right front
+		TalonSRX * rr_motor; //right rear
+		PigeonIMU * pidgey; //IMU
+		enum { gyroCorrectOff, gyroCorrectIMU, gyroCorrectThrottle } driveStraight = gyroCorrectIMU; //This is how we correct for straight driving
+
+		double kPgain = 0.04; /* percent throttle per degree of error */
+		double kDgain = 0.0004; /* percent throttle per angular velocity dps */
+		double kMaxCorrectionRatio = 0.30; /* cap corrective turning throttle to 30 percent of forward throttle */
+		double driveTargetAngle = 0; //Holds the heading to maintain
+		int debugPrintLoops = 0;
 	public:
 		DriveBase();
 		void InitDefaultCommand();
@@ -24,6 +30,8 @@ class DriveBase: public Subsystem
 		float ReturnGyroAngle(); //returns the angle
 		void ResetGyro(); //resets the gyro
 		void CalibrateGyro(); //calibrates the gyro while robot is idle
+		double Ceiling(double value, double peak); //Returns the peak value if value is higher
+		double MaxCorrection(double throttle, double scalor);
 };
 
 #endif

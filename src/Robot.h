@@ -3,7 +3,7 @@
 
 #include "WPILib.h"
 #include <SmartDashboard/SendableChooser.h>
-#include "CANTalon.h"
+#include <ctre/Phoenix.h>
 #include "VictorSP.h"
 
 #include "OI.h"
@@ -11,6 +11,7 @@
 #include "Subsystems/Climber.h"
 #include "Subsystems/DriveBase.h"
 #include "Subsystems/Vision.h"
+#include "Subsystems/Air.h"
 #include "Subsystems/Setup.h"
 
 class Robot: public IterativeRobot
@@ -21,10 +22,11 @@ class Robot: public IterativeRobot
 		static Climber * climber;
 		static DriveBase * drivebase;
 		static Vision * vision;
+		static Air * air;
 		static Setup * setup;
 
 	private:
-		LiveWindow * lw;
+		//LiveWindow * lw;
 		Command * autoncommand;
 //		SendableChooser<Command *> * autonchooser;
 		void RobotInit();
